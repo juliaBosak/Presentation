@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Montserrat Bold';
+	src: local('Montserrat Bold'), local('Montserrat-Bold'),
+	url('../assets/fonts/Montserrat-ExtraBold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'AvenirNextCyr Bold';
+	src: local('Avenir Next Bold'), local('Avenir-Next-Bold'),
+	url('../assets/fonts/AvenirNextCyr-Bold.woff2') format('woff2'),
+	url('../assets/fonts/AvenirNextCyr-Bold.woff') format('woff'),
+	url('../assets/fonts/AvenirNextCyr-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'AvenirNextCyr';
+	src: local('Avenir Next Regular'), local('Avenir-Next-Regular'),
+	url('../assets/fonts/AvenirNextCyr-Regular.woff2') format('woff2'),
+	url('../assets/fonts/AvenirNextCyr-Regular.woff') format('woff'),
+	url('../assets/fonts/AvenirNextCyr-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'AvenirNextCyr Light';
+	src: local('Avenir Next Ultra Light'), local('Avenir-Next-Ultra-Light'),
+	url('../assets/fonts/AvenirNextCyr-UltraLight.woff2') format('woff2'),
+	url('../assets/fonts/AvenirNextCyr-UltraLight.woff') format('woff'),
+	url('../assets/fonts/AvenirNextCyr-UltraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
