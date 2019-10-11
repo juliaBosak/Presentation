@@ -1,5 +1,8 @@
 <template>
-	<section class="cover">
+	<v-touch
+			class="cover"
+			v-on:swipeleft="change"
+			>
 		<div class="cover__ellipse bounceInLeft">
 			<div class="cover__ellipse-content">
 				<div class="cover__ellipse-subtitle">
@@ -15,7 +18,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</v-touch>
 </template>
 <script>
 	export default {
