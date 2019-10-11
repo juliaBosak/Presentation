@@ -1,6 +1,7 @@
 <template>
-	<div id="app">
-		<transition name="component-fade" mode="out-in">
+	<div
+	          id="app">
+		<transition name="slide-fade">
 			<component :emotionsInformation="emotionsCount"
 					:is="currentPage"
 					@changePage="change"

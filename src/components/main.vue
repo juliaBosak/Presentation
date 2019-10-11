@@ -1,5 +1,7 @@
 <template>
-	<div class="main_page">
+	<div
+			class="main_page"
+			>
 		<nav class="sidebar">
 			<div class="sidebar__icons">
 				<button @click="change(0)" class="round-button round-button__home">
@@ -47,7 +49,7 @@
 			         v-on:swipeleft="swipeLeftHandler"
 			         v-on:swiperight="swipeRightHandler"
 			         v-on:swipeup="swipeUpHandler"
-			         :class="{rotateOutUpLeft: allowSwipeLeft, rotateOutUpRight: allowSwipeRight, rotateOutUp: allowSwipeUp}"
+			         :class="{zoomIn: allowSwipe, rotateOutUpLeft: allowSwipeLeft, rotateOutUpRight: allowSwipeRight, rotateOutUp: allowSwipeUp}"
 			>
 				<img v-bind:src="currentCard.img" alt="" class="card__img">
 				<div class="card__description">
@@ -65,13 +67,13 @@
 				</div>
 			</v-touch>
 			<div class="main__buttons">
-				<button class="main__button violet-button" :disabled="buttonDisabled" @click="swipeLeftHandler()">
+				<button class="main__button custom-button violet-button" :disabled="buttonDisabled" @click="swipeLeftHandler()">
 					Препарат 1
 				</button>
-				<button class="main__button blue-button" :disabled="buttonDisabled" @click="swipeUpHandler()">
+				<button class="main__button custom-button blue-button" :disabled="buttonDisabled" @click="swipeUpHandler()">
 					Препарат 2
 				</button>
-				<button class="main__button yellow-button" :disabled="buttonDisabled" @click="swipeRightHandler()">
+				<button class="main__button custom-button yellow-button" :disabled="buttonDisabled" @click="swipeRightHandler()">
 					Препарат 3
 				</button>
 			</div>
@@ -131,7 +133,7 @@
 						classes: 'preparation3'
 					}
 				},
-				swipe: null,
+				allowSwipe: true,
 				allowSwipeLeft: false,
 				allowSwipeRight: false,
 				allowSwipeUp: false,
@@ -159,8 +161,9 @@
 							self.currentCardIndex++;
 						}
 						self.currentCard = self.cardsContent[self.currentCardIndex - 1];
+						self.allowSwipe = true;
 						resolve();
-					}, 2500)
+					}, 1110)
 				});
 
 			},
@@ -170,14 +173,15 @@
 			},
 			swipeLeftHandler() {
 				this.buttonDisabled = true;
+				this.allowSwipe = false;
 				let self = this;
 				if (this.checkAllow()) {
 					this.sadCounter++;
 					this.selectPreparation('1');
 					this.allowSwipeLeft = true;
 					setTimeout(() => {
-						self.allowSwipeLeft = false
-					}, 3000);
+						self.allowSwipeLeft = false;
+					}, 1200);
 					this.changeCard('left').then(
 						() => { this.buttonDisabled = false;
 						}
@@ -186,6 +190,7 @@
 			},
 			swipeRightHandler() {
 				this.buttonDisabled = true;
+				this.allowSwipe = false;
 				let self = this;
 				if (this.checkAllow()) {
 					this.heartCounter++;
@@ -193,7 +198,7 @@
 					this.allowSwipeRight = true;
 					setTimeout(() => {
 						self.allowSwipeRight = false;
-					}, 3000);
+					}, 1200);
 					this.changeCard('right').then(
 						() => { this.buttonDisabled = false;
 						}
@@ -202,14 +207,15 @@
 			},
 			swipeUpHandler() {
 				this.buttonDisabled = true;
+				this.allowSwipe = false;
 				if (this.checkAllow()) {
 					let self = this;
 					this.happyCounter++;
 					this.allowSwipeUp = true;
 					this.selectPreparation('2');
 					setTimeout(() => {
-						self.allowSwipeUp = false
-					}, 3000);
+						self.allowSwipeUp = false;
+					}, 1200);
 					this.changeCard('Up').then(
 							() => { this.buttonDisabled = false;
 							}

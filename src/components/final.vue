@@ -1,5 +1,7 @@
 <template>
-	<div class="final">
+	<v-touch class="final"
+	         v-on:swipeleft="change(0)"
+             v-on:swiperight="change(1)">
 		<div class="final__button-wrap">
 			<button class="round-button final__button" @click="change(0)">
 			</button>
@@ -34,7 +36,7 @@
 			</div>
 			<button class="more__button" @click="change(1)">Попробовать еще</button>
 		</div>
-	</div>
+	</v-touch>
 </template>
 <script>
 	export default {
