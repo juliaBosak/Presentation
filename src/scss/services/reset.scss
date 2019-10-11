@@ -134,3 +134,8 @@ input[type="submit"]
 	border:0;
 	background:none;
 }
+button:focus,
+a:focus {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}

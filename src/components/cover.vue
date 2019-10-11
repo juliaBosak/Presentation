@@ -11,7 +11,7 @@
 					<h1>Помоги <span class="cover__big-title">Фармацевту</span></h1>
 				</div>
 				<div class="cover__ellipse-button">
-					<button class="cover__button">Начать</button>
+					<button class="cover__button" @click="change()">Начать</button>
 				</div>
 			</div>
 		</div>
@@ -20,5 +20,10 @@
 <script>
 	export default {
 		name: 'cover',
+	methods: {
+			change() {
+				this.$emit('changePage')
+			}
+	}
 	}
 </script>

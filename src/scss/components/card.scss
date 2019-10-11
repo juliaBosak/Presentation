@@ -1,0 +1,61 @@
+.card {
+	width: 540px;
+	height: 590px;
+	background: #FFFFFF;
+	box-shadow: 0 0 40px rgba(127, 127, 127, 0.4);
+	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	bottom: 183px;
+	&__img {
+		height: 350px;
+		width: 100%;
+		border-radius: 40px 40px 0 0;
+	}
+	&__description {
+		font-family: 'AvenirNextCyr', sans-serif;
+		line-height: 32px;
+		color: $dark_gray;
+		max-width: 440px;
+		font-size: 24px;
+		&-title {
+			font-family: 'AvenirNextCyr Bold', sans-serif;
+			font-size: 32px;
+			line-height: 50px;
+			color: $violet;
+		}
+	}
+}
+.preparation {
+	width: 360px;
+	height: 118.91px;
+	font-family: 'AvenirNextCyr Bold', sans-serif;
+	font-size: 52px;
+	line-height: 51px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: rotate(-15deg);
+	position: absolute;
+	bottom: 130px;
+	right: 75px;
+	&.preparation1 {
+		border: 8px solid #8049C7;
+		color: #8049C7;
+	}
+	&.preparation2 {
+		border: 8px solid #169AE4;
+		color: #169AE4;
+	}
+	&.preparation3 {
+		color: #FFB903;
+		border: 8px solid transparent;
+		border-image: linear-gradient(180deg, #FFB903 0%, #FFCA01 100%);
+		border-image-slice: 1;
+		transform: rotate(15deg);
+		bottom: 186px;
+		right: 95px;
+	}
+}

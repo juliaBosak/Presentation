@@ -1,0 +1,82 @@
+.final {
+	display: flex;
+	align-items: flex-end;
+	padding-left: 130px;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	&__button-wrap {
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		background: linear-gradient(63.53deg, #2D8550 16.62%, #5E6EC2 83.38%);
+		position: absolute;
+		top: 70px;
+		left: 50px;
+	}
+	&__button {
+		background:  url("../assets/img/final/home2.svg") center no-repeat;
+		&:focus {
+			box-shadow: 0px 0px 40px rgba(127, 127, 127, 0.4);
+		}
+	}
+	&__img {
+		position: absolute;
+		width: 820px;
+		height: 820px;
+		background:
+				linear-gradient(63.53deg, rgba(45, 133, 80, .25) 16.62%, rgba(94, 110, 194, .25) 83.38%),
+				url("../assets/img/final/image.png") no-repeat 0 100px;
+		top: -100px;
+		right: -150px;
+
+	}
+	&__img {
+		box-shadow: 0 0 40px #C4C4C4;
+		border-radius: 50% 0 50% 50%;
+	}
+	&__content {
+		width: 580px;
+		margin-bottom: 83px;
+	}
+	&__percent-counters {
+		padding-bottom: 50px;
+		border-bottom:  2px solid #D9D9D9;
+		display: flex;
+		justify-content: space-around;
+		text-align: center;
+	}
+	&__percent {
+		font-family: 'AvenirNextCyr', sans-serif;
+		font-size: 48px;
+		line-height: 59px;
+		color: $dark_gray;
+	}
+	&__preparation {
+		font-family: 'AvenirNextCyr Bold', sans-serif;
+		font-size: 16px;
+		line-height: 40px;
+		color: $dark_gray;
+	}
+	&__result {
+		margin-top: 40px;
+	}
+	&__result-title {
+		color: $violet;
+		font-family: 'AvenirNextCyr Bold', sans-serif;
+		font-size: 40px;
+		.small-title {
+			font-size: 36px;
+			line-height: 38px;
+			font-family: 'AvenirNextCyr', sans-serif;
+		}
+	}
+	&__result-text {
+		margin-top: 20px;
+		font-size: 24px;
+		line-height: 29px;
+		font-family: 'AvenirNextCyr', sans-serif;
+		color: $dark_gray;
+
+	}
+}
