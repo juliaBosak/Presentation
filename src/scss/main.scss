@@ -1,0 +1,21 @@
+.main {
+	overflow: hidden;
+	&_page {
+		display: flex;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		width: calc(100% - 470px);
+		position: relative;
+	}
+	&__buttons {
+		margin-bottom: 64px;
+		max-width: 960px;
+	}
+	&__card {
+		margin-bottom: 150px;
+	}
+}
