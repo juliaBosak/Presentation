@@ -137,7 +137,7 @@
 				allowSwipeLeft: false,
 				allowSwipeRight: false,
 				allowSwipeUp: false,
-				buttonDisabled: false
+				buttonDisabled: false,
 			}
 		},
 		created() {
@@ -227,8 +227,8 @@
 			},
 			change(number) {
 				this.$emit('changePage', {nextIndex: number});
-			}
-		}
+			},
+		},
 	}
 
 </script>

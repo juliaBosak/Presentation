@@ -3,7 +3,6 @@
 	height: 70px;
 	background-color: #FFFFFF;
 	border-radius: 50%;
-	transition: all .3s;
 	&:focus {
 		box-shadow: 0 0 10px #fff
 	}
@@ -28,7 +27,6 @@
 	line-height: 34px;
 	color: white;
 	background-color: $violet;
-	transition: all .3s;
 	&.violet-button {
 		background: linear-gradient(258.29deg, $gradient_violet2 0%, $gradient_light-violet 100%);
 		&:focus {

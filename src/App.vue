@@ -2,7 +2,11 @@
 	<div
 	          id="app">
 		<transition name="slide-fade">
-			<component :emotionsInformation="emotionsCount"
+			<component v-if="currentPage.name === 'final'" :emotionsInformation="emotionsCount"
+			           :is="currentPage"
+			           @changePage="change"
+			></component>
+			<component v-else
 					:is="currentPage"
 					@changePage="change"
 			></component>
