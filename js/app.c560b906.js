@@ -78,7 +78,7 @@
 					tag: "component",
 					attrs: {emotionsInformation: t.emotionsCount},
 					on: {changePage: t.change}
-				}) : n(t.currentPage, {tag: "component", on: {changePage: t.change}})], 1)], 1)
+				}) : n(t.currentPage, {key: t.componentKey, tag: "component", on: {changePage: t.change}})], 1)], 1)
 			}, s = [], r = function () {
 				var t = this, e = t.$createElement, n = t._self._c || e;
 				return n("v-touch", {
@@ -107,7 +107,13 @@
 							return t.change(0)
 						}
 					}
-				}), n("button", {staticClass: "round-button round-button__retry"})]), n("div", {staticClass: "sidebar__params"}, [t._m(0), n("div", {staticClass: "sidebar__counters"}, [n("div", {staticClass: "emotion-counter"}, [t._m(1), n("div", {staticClass: "emotion-counter__count"}, [n("p", [t._v(t._s(t.sadCounter))])])]), n("div", {staticClass: "emotion-counter"}, [t._m(2), n("div", {staticClass: "emotion-counter__count"}, [t._v(t._s(t.happyCounter))])]), n("div", {staticClass: "emotion-counter ml-110"}, [t._m(3), n("div", {staticClass: "emotion-counter__count"}, [t._v(t._s(t.heartCounter))])])])]), n("div", {staticClass: "sidebar__queue"}, [n("p", [n("span", [t._v("Осталось в очереди:")]), n("br"), n("span", {staticClass: "current-item"}, [t._v(t._s(t.currentCardIndex))]), t._v("\n\t\t\t\t/\n\t\t\t\t"), n("span", {staticClass: "all-items"}, [t._v(t._s(t.cardsContent.length))])])])]), n("div", {staticClass: "main__content"}, [n("v-touch", {
+				}), n("button", {
+					staticClass: "round-button round-button__retry", on: {
+						click: function (e) {
+							return t.change(-1)
+						}
+					}
+				})]), n("div", {staticClass: "sidebar__params"}, [t._m(0), n("div", {staticClass: "sidebar__counters"}, [n("div", {staticClass: "emotion-counter"}, [t._m(1), n("div", {staticClass: "emotion-counter__count"}, [n("p", [t._v(t._s(t.sadCounter))])])]), n("div", {staticClass: "emotion-counter"}, [t._m(2), n("div", {staticClass: "emotion-counter__count"}, [t._v(t._s(t.happyCounter))])]), n("div", {staticClass: "emotion-counter ml-110"}, [t._m(3), n("div", {staticClass: "emotion-counter__count"}, [t._v(t._s(t.heartCounter))])])])]), n("div", {staticClass: "sidebar__queue"}, [n("p", [n("span", [t._v("Осталось в очереди:")]), n("br"), n("span", {staticClass: "current-item"}, [t._v(t._s(t.currentCardIndex))]), t._v("\n\t\t\t\t/\n\t\t\t\t"), n("span", {staticClass: "all-items"}, [t._v(t._s(t.cardsContent.length))])])])]), n("div", {staticClass: "main__content"}, [n("v-touch", {
 					staticClass: "card main__card",
 					class: {
 						zoomIn: t.allowSwipe,
@@ -216,7 +222,8 @@
 						allowSwipeLeft: !1,
 						allowSwipeRight: !1,
 						allowSwipeUp: !1,
-						buttonDisabled: !1
+						buttonDisabled: !1,
+						visible: !0
 					}
 				}, created: function () {
 					this.currentCard = this.cardsContent[0]
@@ -308,14 +315,16 @@
 				}
 			}, x = w, P = Object(u["a"])(x, C, b, !1, null, null, null), y = P.exports, I = [d, g, y], S = {
 				name: "app", components: {cover: d, mainPage: g, final: y}, data: function () {
-					return {currentPageIndex: 0, currentPage: I[0], emotionsCount: null}
+					return {currentPageIndex: 0, currentPage: I[0], emotionsCount: null, componentKey: 0}
 				}, watch: {
 					currentPageIndex: function () {
 						this.currentPage = I[this.currentPageIndex]
 					}
 				}, methods: {
-					change: function (t) {
-						t && "nextIndex" in t ? this.currentPageIndex = t.nextIndex : this.currentPageIndex++, this.emotionsCount = t
+					forceRerender: function () {
+						this.componentKey += 1
+					}, change: function (t) {
+						t && "nextIndex" in t ? -1 === t.nextIndex ? this.forceRerender() : this.currentPageIndex = t.nextIndex : this.currentPageIndex++, this.emotionsCount = t
 					}
 				}
 			}, O = S, k = (n("fe4c"), Object(u["a"])(O, i, s, !1, null, null, null)), j = k.exports, $ = n("5ef5"),
@@ -344,4 +353,4 @@
 		i.a
 	}
 });
-//# sourceMappingURL=app.44c8f7ad.js.map
+//# sourceMappingURL=app.c560b906.js.map
