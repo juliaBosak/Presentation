@@ -353,7 +353,7 @@ input[type=text]:focus {
 	to {
 		-webkit-transform: rotate(15deg) translate(50vw, -50vh);
 		transform: rotate(15deg) translate(50vw, -50vh);
-		opacity: 0
+		opacity: .5
 	}
 }
 
@@ -361,7 +361,7 @@ input[type=text]:focus {
 	to {
 		-webkit-transform: rotate(15deg) translate(50vw, -50vh);
 		transform: rotate(15deg) translate(50vw, -50vh);
-		opacity: 0
+		opacity: .5
 	}
 }
 
@@ -374,17 +374,17 @@ input[type=text]:focus {
 
 @-webkit-keyframes rotateOutUpLeft {
 	to {
-		-webkit-transform: rotate(-15deg) translate(-50vw, -50vh);
-		transform: rotate(-15deg) translate(-50vw, -50vh);
-		opacity: 0
+		-webkit-transform: rotate(-15deg) translate(-60vw, -50vh);
+		transform: rotate(-15deg) translate(-60vw, -50vh);
+		opacity: .5
 	}
 }
 
 @keyframes rotateOutUpLeft {
 	to {
-		-webkit-transform: rotate(-15deg) translate(-50vw, -50vh);
-		transform: rotate(-15deg) translate(-50vw, -50vh);
-		opacity: 0
+		-webkit-transform: rotate(-15deg) translate(-60vw, -50vh);
+		transform: rotate(-15deg) translate(-60vw, -50vh);
+		opacity: .5
 	}
 }
 
@@ -399,7 +399,7 @@ input[type=text]:focus {
 	to {
 		-webkit-transform: rotate(-15deg) translateY(-90vh);
 		transform: rotate(-15deg) translateY(-90vh);
-		opacity: 0
+		opacity: .5
 	}
 }
 
@@ -407,7 +407,7 @@ input[type=text]:focus {
 	to {
 		-webkit-transform: rotate(-15deg) translateY(-90vh);
 		transform: rotate(-15deg) translateY(-90vh);
-		opacity: 0
+		opacity: .5
 	}
 }
 
@@ -533,11 +533,11 @@ input[type=text]:focus {
 }
 
 .round-button__retry {
-	background: #fff url(../img/retry.fe8b0006.svg) 50% no-repeat
+	background: #fff url(../img/retry.f45eedd0.svg) 50% no-repeat
 }
 
 .round-button__home {
-	background: #fff url(../img/home.60b66c2c.svg) 50% no-repeat
+	background: #fff url(../img/home.d113acc5.svg) 50% no-repeat
 }
 
 .main__buttons {
@@ -872,7 +872,7 @@ input[type=text]:focus {
 }
 
 .final__button {
-	background: url(../img/home2.7e3d754e.svg) 50% no-repeat
+	background: url(../img/home2.80453d07.svg) 50% no-repeat
 }
 
 .final__button:focus {
