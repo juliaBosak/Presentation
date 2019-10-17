@@ -1,12 +1,12 @@
 <template>
 	<div
 			class="main_page"
-			>
+	>
 		<nav class="sidebar">
 			<div class="sidebar__icons">
 				<button @click="change(0)" class="round-button round-button__home">
 				</button>
-				<button class="round-button round-button__retry"></button>
+				<button @click="change(-1)" class="round-button round-button__retry"></button>
 			</div>
 			<div class="sidebar__params">
 				<div class="sidebar__params-title">
@@ -52,6 +52,10 @@
 			         :class="{zoomIn: allowSwipe, rotateOutUpLeft: allowSwipeLeft, rotateOutUpRight: allowSwipeRight, rotateOutUp: allowSwipeUp}"
 			>
 				<img v-bind:src="currentCard.img" alt="" class="card__img">
+				<image-preloader v-for="card in cardsContent"
+				                 :key="card.title"
+				                 :src="card.img"
+				/>
 				<div class="card__description">
 					<p class="card__description-title">
 						{{currentCard.title}}
@@ -59,7 +63,8 @@
 					<p class="card__description-text">
 						{{currentCard.text}}
 					</p>
-					<div v-if="selectedPreparation" :class="installedPreparation.classes" class="preparation zoomInLeft">
+					<div v-if="selectedPreparation" :class="installedPreparation.classes"
+					     class="preparation zoomInLeft">
 						<p class="preparation__title">
 							{{installedPreparation.title}}
 						</p>
@@ -67,13 +72,16 @@
 				</div>
 			</v-touch>
 			<div class="main__buttons">
-				<button class="main__button custom-button violet-button" :disabled="buttonDisabled" @click="swipeLeftHandler()">
+				<button class="main__button custom-button violet-button" :disabled="buttonDisabled"
+				        @click="swipeLeftHandler()">
 					Препарат 1
 				</button>
-				<button class="main__button custom-button blue-button" :disabled="buttonDisabled" @click="swipeUpHandler()">
+				<button class="main__button custom-button blue-button" :disabled="buttonDisabled"
+				        @click="swipeUpHandler()">
 					Препарат 2
 				</button>
-				<button class="main__button custom-button yellow-button" :disabled="buttonDisabled" @click="swipeRightHandler()">
+				<button class="main__button custom-button yellow-button" :disabled="buttonDisabled"
+				        @click="swipeRightHandler()">
 					Препарат 3
 				</button>
 			</div>
@@ -138,6 +146,7 @@
 				allowSwipeRight: false,
 				allowSwipeUp: false,
 				buttonDisabled: false,
+				visible: true
 			}
 		},
 		created() {
@@ -153,17 +162,17 @@
 							self.currentCardIndex = 1;
 							let all = self.cardsContent.length;
 							self.$emit('changePage', {
-								sad: Math.round(((self.sadCounter/all)*100)),
-								happy: Math.round((self.happyCounter/all*100)),
-								heart:Math.round((self.heartCounter/all*100)),
+								sad: Math.round(((self.sadCounter / all) * 100)),
+								happy: Math.round((self.happyCounter / all * 100)),
+								heart: Math.round((self.heartCounter / all * 100)),
 							});
 						} else {
 							self.currentCardIndex++;
+							self.currentCard = self.cardsContent[self.currentCardIndex - 1];
+							self.allowSwipe = true;
 						}
-						self.currentCard = self.cardsContent[self.currentCardIndex - 1];
-						self.allowSwipe = true;
 						resolve();
-					}, 1110)
+					}, 950)
 				});
 
 			},
@@ -183,7 +192,8 @@
 						self.allowSwipeLeft = false;
 					}, 1200);
 					this.changeCard('left').then(
-						() => { this.buttonDisabled = false;
+						() => {
+							this.buttonDisabled = false;
 						}
 					);
 				}
@@ -200,8 +210,7 @@
 						self.allowSwipeRight = false;
 					}, 1200);
 					this.changeCard('right').then(
-						() => { this.buttonDisabled = false;
-						}
+						() => this.buttonDisabled = false
 					);
 				}
 			},
@@ -217,18 +226,19 @@
 						self.allowSwipeUp = false;
 					}, 1200);
 					this.changeCard('Up').then(
-							() => { this.buttonDisabled = false;
-							}
-						);
+						() => {
+							this.buttonDisabled = false;
+						}
+					);
 				}
 			},
 			checkAllow() {
-				 return this.sadCounter+this.happyCounter+this.heartCounter < this.cardsContent.length
+				return this.sadCounter + this.happyCounter + this.heartCounter < this.cardsContent.length
 			},
 			change(number) {
 				this.$emit('changePage', {nextIndex: number});
 			},
-		},
+		}
 	}
 
 </script>

@@ -120,7 +120,7 @@
 	@keyframes rotateOutUpRight {
 		100% {
 			transform: rotate3d(0, 0, 1, 15deg) translate(50vw, -50vh);
-			opacity: 0;
+			opacity: .5;
 		}
 	}
 .rotateOutUpRight {
@@ -129,8 +129,9 @@
 }
 @keyframes rotateOutUpLeft {
 	to {
-		transform: rotate3d(0, 0, 1, -15deg) translate(-50vw, -50vh);
-		opacity: 0;
+		transform: rotate3d(0, 0, 1, -15deg) translate(-60vw, -50vh);
+		opacity: .5;
+
 	}
 }
 .rotateOutUpLeft {
@@ -140,7 +141,7 @@
 @keyframes rotateOutUp {
 	to {
 		transform: rotate3d(0, 0, 1, -15deg) translateY(-90vh);
-		opacity: 0;
+		opacity: .5;
 	}
 }
 .rotateOutUp {

@@ -6,7 +6,7 @@
 			           :is="currentPage"
 			           @changePage="change"
 			></component>
-			<component v-else
+			<component :key="componentKey" v-else
 					:is="currentPage"
 					@changePage="change"
 			></component>
@@ -28,13 +28,14 @@
 		components: {
 			cover,
 			mainPage,
-			final
+			final,
 		},
 		data() {
 			return {
 				currentPageIndex: 0,
 				currentPage: pages[0],
-				emotionsCount: null
+				emotionsCount: null,
+				componentKey: 0
 			}
 		},
 		watch: {
@@ -44,9 +45,13 @@
 
 		},
 		methods: {
+			forceRerender() {
+				this.componentKey += 1;
+			},
 			change(data) {
 				if (data && ('nextIndex' in data)) {
-					this.currentPageIndex = data.nextIndex;
+					if (data.nextIndex === -1) this.forceRerender();
+					 else this.currentPageIndex = data.nextIndex;
 				}
 				else {
 					this.currentPageIndex++;
